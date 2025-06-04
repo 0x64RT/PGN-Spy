@@ -120,8 +120,8 @@ bool Engine::initEngine(int variations, int searchDepth, int searchMaxTime, int 
 
 	send("uci");
     if (waitForResponse("uciok")) {
-        // Set default options.
-        setOption("UCI_AnalyseMode", "true");
+        // Set default options. Recent Stockfish versions no longer
+        // support the UCI_AnalyseMode option, so we only set MultiPV.
         setOption("MultiPV", variations);
 
         // Set command-line options.
